@@ -1,0 +1,28 @@
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Pessoas</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Pessoas</th>
+							<th>Apto</th>
+							<th>Bloco</th>
+
+							{% for i in pessoas %}
+								<tr>
+									<td>{{i.nome}}<td>
+									<td>{{i.apto}}<td>
+									<td>{{i.apto.bloco}}<td>
+								</tr>
+							{% endfor %}
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
