@@ -18,3 +18,12 @@ class pessoa(models.Model):
 
 	def __str__(self):
 		return self.nome
+
+class prestador(models.Model):
+	nome = models.CharField(max_length=200, null=True)
+	telefone = models.CharField(max_length=11, null=True)
+	cpf = models.CharField(max_length=11, null=True)
+	apto = models.ManyToManyField(apto)
+
+	def __str__(self):
+		return self.nome

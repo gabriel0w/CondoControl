@@ -8,15 +8,14 @@
 				<div class="card card-body">
 					<table class="table">
 						<tr>
-							<th>Pessoas</th>
+							<th>Prestadores</th>
 							<th>Apto</th>
-							<th>Bloco</th>
-
-							{% for i in pessoas %}
+							<th>Telefone</th>
+							{% for i in prestadores %}
 								<tr>
 									<td>{{i.nome}}</td>
-									<td>{{i.apto}}</td>
-									<td>{{i.apto.bloco}}</td>
+									<td>{{i.apto.all|join:", "}}</td>
+									<td>{{i.telefone}}</td>
 								</tr>
 							{% endfor %}
 						</tr>
