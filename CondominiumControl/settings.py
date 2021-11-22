@@ -20,6 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "moradores/static"),
+    # '/var/www/static/',
+)
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-br1ebkxey!xo37v!t7c3*3e9#t%&bwu5!k)7p4wqew2hf_bi6y'
 

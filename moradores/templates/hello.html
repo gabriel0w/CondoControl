@@ -1,28 +1,47 @@
-		<br>
-
-		<div class="row">
-			<div class="col-md">
-				<div class="card card-body">
-					<h5>Pessoas</h5>
-				</div>
-				<div class="card card-body">
-					<table class="table">
-						<tr>
-							<th>Pessoas</th>
-							<th>Apto</th>
-							<th>Bloco</th>
-
-							{% for i in pessoas %}
-								<tr>
-									<td>{{i.nome}}</td>
-									<td>{{i.apto}}</td>
-									<td>{{i.apto.bloco}}</td>
-								</tr>
-							{% endfor %}
-						</tr>
-						
-					</table>
-				</div>
-			</div>
-			
-		</div>
+{% load static %}
+<link href="{% static "css/hello.css" %}" rel="stylesheet">
+<section class="flex-sect" id="ic9ru">
+  <div class="flex-title" id="in10w">Condominio Jabaquara
+    <br/>
+  </div>
+  <div class="container-width">
+    <div class="flex-desc" id="izta9">APTO {{apartamento}}
+      <br/>
+    </div>
+    <div class="cards">
+      <div class="price-card-cont" id="i34tah">
+        <div class="price-card pc-regular">
+          <div class="pc-title" id="iz9fpd">Moradores
+          </div>
+          <div class="pc-desc" id="i6d35n">Some random list
+          </div>
+			{% for i in morador %}
+          <div class="pc-feature">{{i.nome}}
+          </div>
+			{% endfor %}
+        </div>
+      </div>
+      <div class="price-card-cont" id="ie6eti">
+        <div class="price-card pc-regular">
+          <div class="pc-title" id="i7xcfl">Prestadores
+          </div>
+          <div class="pc-desc" id="i4y3er">Some random list
+          </div>
+		{% for i in prestador %}
+          <div class="pc-feature">{{i.nome}}
+          </div>
+		{% endfor %}
+        </div>
+      </div>
+      <div class="price-card-cont" id="ipy0ra">
+        <div class="price-card pc-regular">
+          <div class="pc-title" id="ibb2n7">Últimos mov.
+            <br/>
+          </div>
+          <div class="pc-desc" id="idzig5">Some random list
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

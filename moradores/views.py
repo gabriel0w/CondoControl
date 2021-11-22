@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
 
-def moradores(request):
-	pessoas = pessoa.objects.all()
-	return render(request, 'hello.html', {'pessoas':pessoas})
+
+def residentes(request, apartamento):
+	morador = residente.objects.filter(apto__apto = apartamento)
+	funcionario = prestador.objects.filter(apto__apto = apartamento)
+	return render(request, 'hello.html', {'morador':morador, 'apartamento':apartamento, 'prestador':funcionario})
 
 def prestadores(request):
 	prestadores = prestador.objects.all()
