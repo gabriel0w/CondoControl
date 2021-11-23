@@ -13,33 +13,27 @@
         <div class="price-card pc-regular">
           <div class="pc-title" id="iz9fpd">Moradores
           </div>
-          <div class="pc-desc" id="i6d35n">Some random list
-          </div>
 			{% for i in morador %}
-          <div class="pc-feature">{{i.nome}}
-          </div>
+          <div class="pc-feature"><a href="/morador/{{i.id}}" style="color: white">{{i.nome}}</a></div>
 			{% endfor %}
         </div>
       </div>
       <div class="price-card-cont" id="ie6eti">
         <div class="price-card pc-regular">
           <div class="pc-title" id="i7xcfl">Prestadores
-          </div>
-          <div class="pc-desc" id="i4y3er">Some random list
-          </div>
+		  	</div>
 		{% for i in prestador %}
-          <div class="pc-feature">{{i.nome}}
-          </div>
+          <div class="pc-feature"><a href="/prestadores/{{i.id}}" style="color: white">{{i.nome}}</a></div>
 		{% endfor %}
         </div>
       </div>
       <div class="price-card-cont" id="ipy0ra">
         <div class="price-card pc-regular">
           <div class="pc-title" id="ibb2n7">Últimos mov.
-            <br/>
-          </div>
-          <div class="pc-desc" id="idzig5">Some random list
-          </div>
+		  </div>
+		  	{% for i in movimentacao|slice:":6" reversed %}
+					<div id="ifh3zj" class="pc-feature">Entrada: {{i.0|date:'Y-m-d H:i'}}<br></br> Nome: {{i.1}} </div>
+			{% endfor %}
         </div>
       </div>
     </div>

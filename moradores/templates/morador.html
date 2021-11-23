@@ -1,29 +1,48 @@
-		<br>
-
-		<div class="row">
-			<div class="col-md">
-				<div class="card card-body">
-					<h5>Morador</h5>
-				</div>
-				<div class="card card-body">
-					<table class="table">
-						<tr>
-							<th>Nome</th>
-							<th>Apto</th>
-							<th>Bloco</th>
-							<th>Telefone</th>
-							<th>CPF</th>
-								<tr>
-									<td>{{morador.nome}}</td>
-									<td>{{morador.apto}}</td>
-									<td>{{morador.apto.bloco}}</td>
-									<td>{{morador.telefone}}</td>
-									<td>{{morador.cpf}}</td>
-								</tr>
-						</tr>
-						
-					</table>
-				</div>
-			</div>
-			
-		</div>
+{% load static %}
+<link href="{% static "css/hello.css" %}" rel="stylesheet">
+<section id="ic9ru" class="flex-sect">
+  <div id="in10w" class="flex-title">Morador
+    <br/>
+  </div>
+  <div class="container-width">
+    <div id="izta9" class="flex-desc">{{morador.nome}}
+      <br/>
+    </div>
+    <div class="cards" id="iphk">
+      <div id="i34tah" class="price-card-cont">
+        <div class="price-card pc-regular" id="ixkp4">
+          <div id="iz9fpd" class="pc-title">Foto
+            <br/>
+          </div>
+          <div id="i6d35n" class="pc-desc">
+		  {% if morador.nome.foto %}
+		  <img id="iyg3r" style = "width:256px;height:241px;" class='foto' src="{{morador.nome.foto.url}}">
+		  {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="price-card-cont" id="ifxf2">
+        <div class="price-card pc-regular" id="iljjr">
+          <div class="pc-title" id="iyrzj">Informações
+            <br/>
+          </div>
+          	<div id="ifh3zj" class="pc-feature">Nome : {{morador.nome}}</div>
+			<div id="ifh3zj" class="pc-feature">Tel : {{morador.nome.telefone}}</div>
+			<div id="ifh3zj" class="pc-feature">CPF : {{morador.nome.cpf}}</div>
+			<div id="ifh3zj" class="pc-feature">Apto : {{morador.apto}} {{morador.apto.bloco}}</div>
+			<div id="ifh3zj" class="pc-feature">E-mail {{morador.nome.email}}</div>
+        </div>
+      </div>
+      <div class="price-card-cont" id="i6bzo">
+        <div class="price-card pc-regular" id="iiu79">
+          <div class="pc-title" id="iasfk">Movimentação</div>
+			{% for i in movimentacao|slice:":6" reversed %}
+		  	<div id="ifh3zj" class="pc-feature">{{i|date:'Y-m-d H:i'}} </div>
+			  {% endfor %}
+            <br/>
+        </div>
+      </div>
+    </div>
+	{{movimentacao|date:"M d, Y" }}
+  </div>
+</section>

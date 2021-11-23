@@ -1,0 +1,46 @@
+{% load static %}
+<link href="{% static "css/hello.css" %}" rel="stylesheet">
+<section id="ic9ru" class="flex-sect">
+  <div id="in10w" class="flex-title">Apartamentos
+    <br/>
+  </div>
+  <div class="container-width">
+    <div id="izta9" class="flex-desc">Escolha um apartamento!
+      <br/>
+    </div>
+    <div class="cards" id="iphk">
+      <div id="i34tah" class="price-card-cont">
+        <div class="price-card pc-regular" id="ixkp4">
+          <div id="iz9fpd" class="pc-title">
+            <div>Apartamentos
+            </div>
+            <div>Bloco A
+              <br/>
+            </div>
+          </div>
+		  {% for i in apto_a %}
+          <div id="ifh3zj" class="pc-feature">
+				<a href="/moradores/{{i.apto}}" style="color: white">{{i.apto}} {{i.bloco}}</a>
+          </div>
+		  {% endfor %}
+        </div>
+      </div>
+      <div class="price-card-cont" id="imbcf">
+        <div class="price-card pc-regular" id="ipzua">
+          <div class="pc-title" id="i5vrw">
+            <div>Apartamentos
+            </div>
+            <div>Bloco B
+              <br/>
+            </div>
+          </div>
+		  {% for i in apto_b %}
+          <div class="pc-feature">
+					<a href="/moradores/{{i.apto}}" style="color: white">{{i.apto}} {{i.bloco}}</a>
+			{% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

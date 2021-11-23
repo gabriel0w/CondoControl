@@ -1,27 +1,46 @@
-		<br>
-
-		<div class="row">
-			<div class="col-md">
-				<div class="card card-body">
-					<h5>Pessoas</h5>
-				</div>
-				<div class="card card-body">
-					<table class="table">
-						<tr>
-							<th>Prestadores</th>
-							<th>Apto</th>
-							<th>Telefone</th>
-							{% for i in prestadores %}
-								<tr>
-									<td>{{i.nome}}</td>
-									<td>{{i.apto.all|join:", "}}</td>
-									<td>{{i.telefone}}</td>
-								</tr>
-							{% endfor %}
-						</tr>
-						
-					</table>
-				</div>
-			</div>
-			
-		</div>
+{% load static %}
+<link href="{% static "css/hello.css" %}" rel="stylesheet">
+<section id="ic9ru" class="flex-sect">
+  <div id="in10w" class="flex-title">Prestador
+    <br/>
+  </div>
+  <div class="container-width">
+    <div id="izta9" class="flex-desc">{{funcionario.nome}}
+      <br/>
+    </div>
+    <div class="cards" id="iphk">
+      <div id="i34tah" class="price-card-cont">
+        <div class="price-card pc-regular" id="ixkp4">
+          <div id="iz9fpd" class="pc-title">Foto
+          </div>
+          <div id="i6d35n" class="pc-desc">
+		  {% if funcionario.nome.foto %}
+		  <img id="iyg3r" style = "width:256px;height:241px;" class='foto' src="{{funcionario.nome.foto.url}}">
+		  {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="price-card-cont" id="ifxf2">
+        <div class="price-card pc-regular" id="iljjr">
+          <div class="pc-title" id="iyrzj">Informações
+            <br/>
+          </div>
+          	<div id="ifh3zj" class="pc-feature">Nome : {{funcionario.nome}}</div>
+			<div id="ifh3zj" class="pc-feature">Tel : {{funcionario.nome.telefone}}</div>
+			<div id="ifh3zj" class="pc-feature">CPF : {{funcionario.nome.cpf}}</div>
+			<div id="ifh3zj" class="pc-feature">Apto : {{funcionario.apto.all|join:", "}}</div>
+			<div id="ifh3zj" class="pc-feature">E-mail {{funcionario.nome.email}}</div>
+        </div>
+      </div>
+      <div class="price-card-cont" id="i6bzo">
+        <div class="price-card pc-regular" id="iiu79">
+          <div class="pc-title" id="iasfk">Movimentação</div>
+			{% for i in movimentacao|slice:":6" reversed %}
+		  	<div id="ifh3zj" class="pc-feature">{{i|date:'Y-m-d H:i'}} </div>
+			  {% endfor %}
+            <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

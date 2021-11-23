@@ -6,7 +6,8 @@ from django.conf import settings
 # URLConf
 urlpatterns = [
 	path('moradores/<str:apartamento>/', views.residentes),
-	path('prestadores/', views.prestadores),
-	path('morador/<str:pk>/', views.morador)
+	path('prestadores/<str:pk>', views.prestadores),
+	path('morador/<str:pk>/', views.morador),
+	path('apartamentos/', views.apartamentos),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
