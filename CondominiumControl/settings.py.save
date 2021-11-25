@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import dj_database_ur
 from pathlib import Path
 import os
-import dj_database_url
+
+prod_db  =  dj_database_url.config(conn_max_age=500)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,7 +35,7 @@ SECRET_KEY = 'django-insecure-br1ebkxey!xo37v!t7c3*3e9#t%&bwu5!k)7p4wqew2hf_bi6y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','condominiumcontrol.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -150,5 +151,5 @@ LOGIN_REDIRECT_URL = ''
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-prod_db  =  dj_database_url.config(conn_max_age=500)
+
 DATABASES['default'].update(prod_db)
