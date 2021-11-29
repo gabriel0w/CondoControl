@@ -1,1 +1,1 @@
-web: gunicorn config.wsgi --log-file -
+web: gunicorn CondominiumControl_heroku.wsgi --log-file -
